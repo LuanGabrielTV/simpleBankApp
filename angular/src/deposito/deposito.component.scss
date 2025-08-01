@@ -1,0 +1,18 @@
+h4{
+    letter-spacing: -0.8px;
+    display: block;
+    margin: 1%;
+    font-weight: 700;
+}
+
+.vertical-center{
+    transform: translateY(80%);
+}
+
+@media only screen and (min-width: 700px) {
+    #lancamento-form {
+        margin-top: 1%;
+        width: 60%;
+    }
+
+}

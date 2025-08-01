@@ -1,0 +1,53 @@
+<div class="navbar">
+    <div [routerLink]="['/home']" class="logo">
+        <h1>S<strong>B</strong></h1>
+    </div>
+    <div class="user">
+        <p>Cliente:</p>
+        <p id="user-name">{{tokenInfo?.name}}</p>
+    </div>
+</div>
+<div class="vertical-center">
+    <form id="extrato-form" [formGroup]="form" (submit)="onSubmit()">
+        <h4>Extrato</h4>
+        <div class="form-group">
+            <div>
+                <label for="conta">Conta</label>
+                <select class="form-select" id="conta" name="conta" formControlName="conta" aria-describedby="contaHelp"
+                    password="Selecione a conta">
+                    @for (conta of contas; track conta; let i = $index) {
+                    <option [value]="i">
+                        {{conta.numero}}
+                    </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="button-row">
+            <button type="submit" [disabled]="!this.form.valid" class="btn btn-dark">Consultar</button>
+        </div>
+    </form>
+    <div class="table-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Operação</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (lancamento of lancamentos; track lancamento.tipo; let i = $index) {
+                <tr>
+                    <td>{{ lancamento.data }}</td>
+                    <td>{{ lancamento.valor }}</td>
+                    <td>{{ lancamento.tipo }}</td>
+                    <td>{{ lancamento.operacao }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<button class="btn btn-danger logout" (click)="logout()">Sair</button>

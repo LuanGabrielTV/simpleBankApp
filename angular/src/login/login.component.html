@@ -1,0 +1,30 @@
+<div class="vertical-center">
+  <div class="logo">
+    <h1>Simple<strong>Bank</strong></h1>
+  </div>
+  <form id="login-form" [formGroup]="form" (submit)="onSubmit()">
+    <div class="form-group">
+      <div>
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" id="cpf" name="cpf" formControlName="cpf" aria-describedby="cpfHelp"
+          placeholder="Digite seu cpf" mask = "00000000000">
+      </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" id="password" name="password" formControlName="password"
+          aria-describedby="passwordHelp" placeholder="Digite sua senha">
+      </div>
+    </div>
+    <div>
+      <div class="button-row">
+        <button [disabled]="!this.form.valid" type="submit" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-dark" (click)="goToRegister()">Cadastrar</button>
+      </div>
+    </div>
+  </form>
+</div>
+@if (this.alert!.message != ""){
+<ngb-alert #selfClosingAlert [type]="this.alert!.type" [dismissible]="false">{{ this.alert?.message }}</ngb-alert>
+}

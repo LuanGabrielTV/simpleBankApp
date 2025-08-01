@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: 'Inter';
+    font-weight: 300;
+}
+
+@import 'bootstrap/scss/bootstrap';
+
+.button-row {
+    padding: 1%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+label {
+    margin-bottom: 1%;
+}
+
+.form-group {
+    padding: 1%;
+    display: flex;
+}
+
+.form-group div {
+    flex: 1;
+    margin-right: 1%;
+}
+
+#login-form,
+#register-form,
+#lancamento-form,
+#limite-form,
+#extrato-form,
+#transferencia-form {
+    width: 90%;
+    margin: auto;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.logo strong {
+    font-weight: 800;
+    color: #61a0fd;
+}
+
+.logo h1 {
+    font-size: 50px;
+    font-weight: 150;
+    letter-spacing: -2px;
+}
+
+input::placeholder {
+    font-weight: 200;
+}
+
+button {
+    font-weight: 600 !important;
+    letter-spacing: -0.8px;
+}
+
+.navbar {
+    padding: 50px;
+}
+
+.navbar .logo {
+    cursor: pointer;
+    margin: 0;
+}
+
+.navbar .logo h1 {
+    font-size: 35px;
+}
+
+ngb-alert {
+    position: absolute !important;
+    bottom: 2% !important;
+    left: 2% !important;
+}
+
+.navbar {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    vertical-align: middle;
+}
+
+.user {
+    display: flex;
+}
+
+.user #user-name {
+    color: #61a0fd;
+    font-weight: 600;
+}
+
+.user p {
+    margin: 1%;
+}
+
+.table-container {
+    margin: auto;
+    width: 50%;
+}
+
+.logout {
+    position: absolute;
+    bottom: 4%;
+    right: 2%;
+}
+
+.saldo {
+    position: absolute;
+    bottom: 4%;
+    left: 2%;
+}

@@ -1,0 +1,14 @@
+.logo {
+    height: 70px;
+}
+
+.vertical-center{
+    transform: translateY(100%);
+}
+
+@media only screen and (min-width: 700px) {
+    #login-form {
+        width: 40%;
+    }
+
+}

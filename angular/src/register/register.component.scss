@@ -1,0 +1,22 @@
+.logo {
+    height: 70px;
+}
+
+.vertical-center{
+    transform: translateY(80%);
+}
+
+h4{
+    letter-spacing: -0.8px;
+    display: block;
+    margin: 1%;
+    font-weight: 700;
+}
+
+@media only screen and (min-width: 700px) {
+    #register-form {
+        margin-top: 1%;
+        width: 60%;
+    }
+
+}
