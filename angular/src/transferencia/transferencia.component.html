@@ -1,8 +1,9 @@
 <div class="navbar">
-    <div [routerLink]="['/home']" class="logo">
+    <div [routerLink]="['/home']" (keyup.enter)="navigateToRoute('/home')" class="logo hoverable"
+        title="Voltar para a home">
         <h1>S<strong>B</strong></h1>
     </div>
-    <div class="user">
+    <div class="user" tabindex="0">
         <p>Cliente:</p>
         <p id="user-name">{{tokenInfo?.name}}</p>
     </div>
@@ -12,31 +13,45 @@
         <h4>Transferência</h4>
         <div class="form-group">
             <div>
-                <label for="contaOrigem">Conta de origem</label>
-                <select class="form-select" id="contaOrigem" name="contaOrigem" formControlName="contaOrigem" aria-describedby="contaHelp"
-                    password="Selecione a conta">
+                <label for="contaOrigem">Conta de origem *</label>
+                <select class="form-select" id="contaOrigem" name="contaOrigem" formControlName="contaOrigem"
+                    aria-describedby="contaHelp" password="Selecione a conta">
+                    <option></option>
                     @for (conta of contas; track conta; let i = $index) {
                     <option [value]="i">
                         {{conta.numero}}
                     </option>
                     }
                 </select>
+                <div class="error"
+                    *ngIf="form.get('contaOrigem')?.touched && form.get('contaOrigem')?.errors?.['required']">
+                    Conta de origem é obrigatória.
+                </div>
             </div>
-             <div>
-                <label for="contaDestino">Conta de destino</label>
-                <select class="form-select" id="contaDestino" name="contaDestino" formControlName="contaDestino" aria-describedby="contaHelp"
-                    password="Selecione a conta">
+            <div>
+                <label for="contaDestino">Conta de destino *</label>
+                <select class="form-select" id="contaDestino" name="contaDestino" formControlName="contaDestino"
+                    aria-describedby="contaHelp" password="Selecione a conta">
+                    <option></option>
                     @for (conta of allContas; track conta; let i = $index) {
                     <option [value]="i">
                         {{conta.numero}}
                     </option>
                     }
                 </select>
+                <div class="error"
+                    *ngIf="form.get('contaDestino')?.touched && form.get('contaDestino')?.errors?.['required']">
+                    Conta de destino é obrigatória.
+                </div>
             </div>
             <div>
-                <label for="valor">Valor</label>
+                <label for="valor">Valor *</label>
                 <input type="number" class="form-control" id="valor" name="valor" formControlName="valor"
                     aria-describedby="valorHelp" placeholder="Digite o valor">
+                <div class="error"
+                    *ngIf="form.get('valor')?.touched && form.get('valor')?.errors?.['required']">
+                    Valor é obrigatório.
+                </div>
             </div>
         </div>
         <div class="button-row">

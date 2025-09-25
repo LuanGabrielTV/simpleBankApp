@@ -1,8 +1,9 @@
 <div class="navbar">
-    <div [routerLink]="['/home']" class="logo">
+    <div [routerLink]="['/home']" (keyup.enter)="navigateToRoute('/home')" class="logo hoverable"
+        title="Voltar para a home">
         <h1>S<strong>B</strong></h1>
     </div>
-    <div class="user">
+    <div class="user" tabindex="0">
         <p>Cliente:</p>
         <p id="user-name">{{tokenInfo?.name}}</p>
     </div>
@@ -12,20 +13,27 @@
         <h4>Depósito</h4>
         <div class="form-group">
             <div>
-                <label for="conta">Conta</label>
+                <label for="conta">Conta *</label>
                 <select class="form-select" id="conta" name="conta" formControlName="conta" aria-describedby="contaHelp"
                     password="Selecione a conta">
+                    <option></option>
                     @for (conta of contas; track conta; let i = $index) {
                     <option [value]="i">
                         {{conta.numero}}
                     </option>
                     }
                 </select>
+                <div class="error" *ngIf="form.get('conta')?.touched && form.get('conta')?.errors?.['required']">
+                    Conta é obrigatória.
+                </div>
             </div>
             <div>
-                <label for="valor">Valor</label>
+                <label for="valor">Valor *</label>
                 <input type="number" class="form-control" id="valor" name="valor" formControlName="valor"
                     aria-describedby="valorHelp" placeholder="Digite o valor">
+                <div class="error" *ngIf="form.get('valor')?.touched && form.get('valor')?.errors?.['required']">
+                    Valor é obrigatório.
+                </div>
             </div>
         </div>
         <div class="button-row">

@@ -5,16 +5,30 @@
   <form id="login-form" [formGroup]="form" (submit)="onSubmit()">
     <div class="form-group">
       <div>
-        <label for="cpf">CPF</label>
+        <label for="cpf">CPF *</label>
         <input type="text" class="form-control" id="cpf" name="cpf" formControlName="cpf" aria-describedby="cpfHelp"
-          placeholder="Digite seu cpf" mask = "00000000000">
+          placeholder="Digite seu cpf" mask="00000000000">
+        <div class="error" *ngIf="form.get('cpf')?.touched && form.get('cpf')?.errors?.['required']">
+          CPF é obrigatório.
+        </div>
+        <div class="error"
+          *ngIf="form.get('cpf')?.touched && (form.get('cpf')?.errors?.['minlength'] || form.get('cpf')?.errors?.['maxlength'] )">
+          CPF deve ter 11 caracteres.
+        </div>
       </div>
     </div>
     <div class="form-group">
       <div>
-        <label for="password">Senha</label>
+        <label for="password">Senha *</label>
         <input type="password" class="form-control" id="password" name="password" formControlName="password"
           aria-describedby="passwordHelp" placeholder="Digite sua senha">
+        <div class="error" *ngIf="form.get('senha')?.touched && form.get('senha')?.errors?.['required']">
+          Senha é obrigatória.
+        </div>
+        <div class="error"
+          *ngIf="form.get('senha')?.touched && (form.get('senha')?.errors?.['minlength'] || form.get('senha')?.errors?.['maxlength'] )">
+          Senha deve ter entre 8 e 16 caracteres.
+        </div>
       </div>
     </div>
     <div>

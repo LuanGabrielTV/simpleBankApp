@@ -7,10 +7,11 @@ import { Conta } from '../model/Conta';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Alert } from '../model/Alert';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-conta',
-  imports: [FormsModule, ReactiveFormsModule, NgbAlert, RouterModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbAlert, RouterModule],
   templateUrl: './conta.component.html',
   styleUrl: './conta.component.scss'
 })
@@ -68,6 +69,10 @@ export class ContaComponent {
     setTimeout(() => {
       this.alert = new Alert("", "");
     }, duration + 1000)
+  }
+  
+  navigateToRoute(rota: string){
+    this.router.navigate([rota]);
   }
 
   onSubmit() {

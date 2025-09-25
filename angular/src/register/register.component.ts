@@ -27,7 +27,8 @@ export class RegisterComponent {
         Validators.required, Validators.minLength(11), Validators.maxLength(11)])],
       'password': [this.cliente.password, Validators.compose([
         Validators.required, Validators.minLength(8), Validators.maxLength(16)])],
-      'telefone': [this.cliente.telefone, Validators.required]
+      'telefone': [this.cliente.telefone, Validators.compose([
+        Validators.required, Validators.minLength(11), Validators.maxLength(11)])],
     });
     this.alert = new Alert("", "");
   }

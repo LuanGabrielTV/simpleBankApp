@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit {
 
   }
 
+  navigateToRoute(rota: string){
+    this.router.navigate([rota]);
+  }
+
   ngOnInit(): void {
 
     this.token = this.tokenService.getToken();

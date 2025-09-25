@@ -34,6 +34,10 @@ export class ExtratoComponent implements OnInit {
     });
   }
 
+  navigateToRoute(rota: string){
+    this.router.navigate([rota]);
+  }
+
   ngOnInit() {
 
     this.token = this.tokenService.getToken();

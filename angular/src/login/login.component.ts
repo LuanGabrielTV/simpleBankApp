@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule, NgbAlertModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgbAlertModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -35,7 +35,7 @@ export class LoginComponent {
     this.router.navigate(['/register']);
   }
 
-  raiseAlert(message: string, type: string, duration: number){
+  raiseAlert(message: string, type: string, duration: number) {
     this.alert = new Alert(message, type);
     setTimeout(() => {
       this.selfClosingAlert?.close();

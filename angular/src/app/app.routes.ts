@@ -10,12 +10,12 @@ import { TransferenciaComponent } from '../transferencia/transferencia.component
 
 export const routes: Routes = [
     { path: '', component: LoginComponent },
-    { path: 'transferencia', component: TransferenciaComponent },
-    { path: 'extrato', component: ExtratoComponent },
-    { path: 'deposito', component: DepositoComponent },
-    { path: 'saque', component: SaqueComponent },
-    { path: 'conta', component: ContaComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'login', component: LoginComponent }
+    { path: 'transferencia', component: TransferenciaComponent, title: 'Transferência' },
+    { path: 'extrato', component: ExtratoComponent, title: 'Extrato' },
+    { path: 'deposito', component: DepositoComponent, title: 'Depósito' },
+    { path: 'saque', component: SaqueComponent, title: 'Saque' },
+    { path: 'conta', component: ContaComponent, title: 'Conta'  },
+    { path: 'home', component: HomeComponent, title: 'Home'  },
+    { path: 'register', component: RegisterComponent, title: 'Cadastro' },
+    { path: 'login', component: LoginComponent, title: 'Login' }
 ];

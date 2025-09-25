@@ -42,6 +42,10 @@ export class SaqueComponent implements OnInit {
     this.alert = new Alert("", "");
   }
 
+  navigateToRoute(rota: string) {
+    this.router.navigate([rota]);
+  }
+
   ngOnInit() {
 
     this.token = this.tokenService.getToken();

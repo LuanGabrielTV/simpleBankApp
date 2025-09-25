@@ -91,6 +91,9 @@ ngb-alert {
     vertical-align: middle;
 }
 
+::ng-deep
+
+
 .user {
     display: flex;
 }
@@ -119,4 +122,28 @@ ngb-alert {
     position: absolute;
     bottom: 4%;
     left: 2%;
+}
+
+*:focus:not(button){
+    background-color: yellow !important;
+    outline: 2px solid orange;
+}
+
+.hoverable:hover, input:hover, select:hover{
+    background-color: rgb(216, 255, 171) !important;
+    // outline: 2px solid orange;
+}
+
+button:focus{
+    outline: 2px solid black !important;
+}
+
+.user:focus{
+    background-color: rgb(185, 255, 79) !important;
+    outline: 2px solid rgb(0, 187, 47);
+}
+
+.error{
+    // font-weight: bold;
+    color:red;
 }

@@ -69,6 +69,11 @@ export class DepositoComponent {
     }, duration + 1000)
   }
 
+  navigateToRoute(rota: string) {
+    this.router.navigate([rota]);
+  }
+
+
   logout() {
     sessionStorage.removeItem('token');
     this.router.navigate(['/login']);

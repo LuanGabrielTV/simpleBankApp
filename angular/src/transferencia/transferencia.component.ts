@@ -89,6 +89,10 @@ export class TransferenciaComponent {
     }, duration + 1000)
   }
 
+  navigateToRoute(rota: string){
+    this.router.navigate([rota]);
+  }
+
   onSubmit() {
     this.selectedContaOrigem = this.contas[this.form.get('contaOrigem')?.value];
     this.selectedContaDestino = this.allContas[this.form.get('contaDestino')?.value];

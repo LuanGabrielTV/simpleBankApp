@@ -1,15 +1,16 @@
+
 <div class="navbar">
-    <div [routerLink]="['/home']" class="logo">
+    <div class="logo">
         <h1>S<strong>B</strong></h1>
     </div>
-    <div class="user">
+    <div class="user" tabindex="0">
         <p>Cliente:</p>
         <p id="user-name">{{tokenInfo?.name}}</p>
     </div>
 </div>
 <div class="menu">
     <div class="activities">
-        <div [routerLink]="['/conta']" class="activity">
+        <div [routerLink]="['/conta']" (keyup.enter)="navigateToRoute('/conta')" class="activity hoverable" title="Acessar o menu de contas">
             <svg fill="#000000" viewBox="0 0 24 24" id="add-user-6" data-name="Flat Color"
                 xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -25,7 +26,7 @@
             </svg>
             <h6>Contas</h6>
         </div>
-        <div [routerLink]="['/saque']" class="activity">
+        <div [routerLink]="['/saque']" (keyup.enter)="navigateToRoute('/saque')" class="activity hoverable" title="Acessar o menu de saques">
             <svg fill="#000000" viewBox="0 0 24 24" id="money-alt-1" data-name="Flat Color"
                 xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -41,7 +42,7 @@
             </svg>
             <h6>Saque</h6>
         </div>
-        <div [routerLink]="['/deposito']" class="activity">
+        <div [routerLink]="['/deposito']" (keyup.enter)="navigateToRoute('/deposito')" class="activity hoverable" title="Acessar o menu de depósitos">
             <svg fill="#000000" viewBox="0 0 24 24" id="money-bag-dollar" data-name="Flat Color"
                 xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -60,7 +61,7 @@
             </svg>
             <h6>Depósito</h6>
         </div>
-        <div [routerLink]="['/extrato']" class="activity">
+        <div [routerLink]="['/extrato']" (keyup.enter)="navigateToRoute('/extrato')" class="activity hoverable" title="Acessar o menu de extratos">
             <svg fill="#000000" viewBox="0 0 24 24" id="agenda-pencil" data-name="Flat Color"
                 xmlns="http://www.w3.org/2000/svg" class="icon flat-color">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -74,7 +75,7 @@
             </svg>
             <h6>Extrato</h6>
         </div>
-        <div [routerLink]="['/transferencia']" class="activity">
+        <div [routerLink]="['/transferencia']" (keyup.enter)="navigateToRoute('/transferencia')" class="activity hoverable" title="Acessar o menu de transferências">
             <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

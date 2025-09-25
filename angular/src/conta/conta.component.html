@@ -1,20 +1,21 @@
 <div class="navbar">
-    <div [routerLink]="['/home']" class="logo">
+    <div [routerLink]="['/home']" (keyup.enter)="navigateToRoute('/home')" class="logo hoverable"
+        title="Voltar para a home">
         <h1>S<strong>B</strong></h1>
     </div>
-    <div class="user">
+    <div class="user" tabIndex="0" title="Nome do cliente">
         <p>Cliente:</p>
         <p id="user-name">{{tokenInfo?.name}}</p>
     </div>
 </div>
 <div class="table-container">
     <h4>Contas</h4>
-    <table class="table table-striped">
+    <table class="table table-striped" name="Tabela de contas">
         <thead>
             <tr>
-                <th scope="col">Número da conta</th>
-                <th scope="col">Saldo</th>
-                <th scope="col">Limite de crédito</th>
+                <th name="Número da conta" scope="col">Número da conta</th>
+                <th name="Saldo" scope="col">Saldo</th>
+                <th name="Limite de crédito" scope="col">Limite de crédito</th>
             </tr>
         </thead>
         <tbody>
@@ -35,20 +36,28 @@
     <form id="limite-form" [formGroup]="form" (submit)="onSubmit()">
         <div class="form-group">
             <div>
-                <label for="conta">Conta</label>
+                <label for="conta">Conta *</label>
                 <select class="form-select" id="conta" name="conta" formControlName="conta" aria-describedby="contaHelp"
                     password="Selecione a conta">
+                    <option></option>
                     @for (conta of contas; track conta; let i = $index) {
                     <option [value]="i">
                         {{conta.numero}}
                     </option>
                     }
                 </select>
+                <div class="error"
+                    *ngIf="form.get('conta')?.touched && form.get('conta')?.errors?.['required']">
+                    Conta é obrigatória.
+                </div>
             </div>
             <div>
-                <label for="valor">Novo limite</label>
+                <label for="valor">Novo limite *</label>
                 <input type="number" class="form-control" id="valor" name="valor" formControlName="valor"
                     aria-describedby="valorHelp" placeholder="Digite o valor">
+                <div class="error" *ngIf="form.get('valor')?.touched && form.get('valor')?.errors?.['required']">
+                    Novo limite é obrigatório.
+                </div>
             </div>
         </div>
         <div class="button-row">
@@ -60,4 +69,4 @@
 <ngb-alert #selfClosingAlert [type]="this.alert!.type" [dismissible]="false">{{ this.alert?.message
     }}</ngb-alert>
 }
-<button class="btn btn-danger logout" (click)="logout()">Sair</button>
+<button class="btn btn-danger logout" (click)="logout()" title="Sair da conta">Sair</button>
